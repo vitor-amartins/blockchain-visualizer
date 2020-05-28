@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/background.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #F7F7F7;
+  font-family: 'Montserrat', sans-serif;
+}
+
+div.blocks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+div.block {
+  border-radius: 15px;
+  background-color: #1b1d21;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  width: 60%;
+  margin: 40px;
+  padding-bottom: 15px;
+}
+
+div.block div.name {
+  display: flex;
+  height: 50px;
+}
+
+div.block div.index {
+  background-image: url('assets/orange-square.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 100%;
+  border-radius: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+div.block div.header-hash {
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+div.block hr {
+  border: 1px solid #282b31;
+}
+
+div.header {
+  display: flex;
+  font-size: .8rem;
+}
+
+div.header table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+div.header td {
+  border: 2px solid #282b31;
+  padding: 5px 10px 5px 20px;
+}
+
+div.header tr.version td,
+div.header tr.nonce td {
+  border-top: none;
+  border-bottom: none;
+}
+
+div.header td:first-child {
+  border-left: none;
+}
+
+div.header td:last-child {
+  border-right: none;
+}
+
+div.attribution {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  font-size: .7rem;
+  opacity: 70%;
+}
+
+div.attribution a {
+  color: #F7F7F7;
+}
