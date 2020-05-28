@@ -77,8 +77,8 @@ div.header td {
   padding: 5px 10px 5px 20px;
 }
 
-div.header tr.version td,
-div.header tr.nonce td {
+div.header tr:first-child td,
+div.header tr:last-child td {
   border-top: none;
   border-bottom: none;
 }
@@ -89,6 +89,10 @@ div.header td:first-child {
 
 div.header td:last-child {
   border-right: none;
+}
+
+.monospaced {
+  font-family: 'Fira Code', monospace;
 }
 
 div.attribution {
