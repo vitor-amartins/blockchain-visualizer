@@ -14,12 +14,13 @@ body {
 }
 
 div.blocks {
+  margin: 30px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 div.block {
@@ -29,7 +30,7 @@ div.block {
   -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
   -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
   width: 60%;
-  margin: 40px;
+  margin: 30px;
   padding-bottom: 15px;
 }
 
@@ -39,7 +40,7 @@ div.block div.name {
 }
 
 div.block div.index {
-  background-image: url('assets/orange-square.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/green-square.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -50,6 +51,14 @@ div.block div.index {
   justify-content: center;
   align-items: center;
   font-weight: bold;
+}
+
+div.block.genesis div.index {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/blue-square.jpg');
+}
+
+div.block.invalid div.index {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('assets/red-square.jpg');
 }
 
 div.block div.header-hash {
@@ -93,6 +102,15 @@ div.header td:last-child {
 
 .monospaced {
   font-family: 'Fira Code', monospace;
+}
+
+div.block div.data {
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+div.block div.data tr.string:not(:first-child) td {
+  padding-top: 15px;
 }
 
 div.attribution {
