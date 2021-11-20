@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/background.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #F7F7F7;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.monospaced {
+  font-family: 'Fira Code', monospace;
+}
+
+div.attribution {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  font-size: .7rem;
+  opacity: 70%;
+}
+
+div.attribution a {
+  color: #F7F7F7;
+}
