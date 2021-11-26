@@ -1,66 +1,12 @@
+import React from 'react';
 import dayjs from 'dayjs';
-import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { getBodyHash, getHeaderHash, checkDifficultyForHash } from '../../hash';
 
 import { BlockBody, BlockHash, BlockHeader, BlockTable, BlockTitle, StyledBlock } from './styles';
 
-const Block = ({ block, previousBlock }) => {
-  const [type, setType] = useState('loading');
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const isGenesis = block.index === 0 && previousBlock === null;
-
-    // Check index and previous block
-    if (block.index === 0 && previousBlock !== null) {
-      setType('invalid');
-      setError('Índice 0 porém há um bloco anterior na cadeia');
-      return;
-    }
-
-    // Checks for non genesis blocks
-    if (!isGenesis) {
-      // Check if previous hash field match with the hash of the previous block
-      if (block.previousHash !== previousBlock?.hash) {
-        setType('invalid');
-        setError('Hash do bloco anterior não confere');
-        return;
-      }
-  
-      // Check if the timestamp of this block is smaller than the timestamp from the previous block
-      if (block.timestamp <= previousBlock?.timestamp) {
-        setType('invalid');
-        setError('Timestamp do bloco atual é menor que a do bloco anterior');
-        return;
-      }
-    }
-
-    // Check if hash has the ammount of zeros set by the difficulty
-    if (!checkDifficultyForHash(block.difficulty, block.hash)) {
-      setType('invalid');
-      setError('A hash do bloco não possui a dificuldade exigida');
-      return;
-    }
-
-    // Check the hash of the body
-    if (getBodyHash(block.transactions) !== block.bodyHash) {
-      setType('invalid');
-      setError('A hash do corpo do bloco não confere');
-      return;
-    }
-
-    // Check the hash of the header
-    if (getHeaderHash(block) !== block.hash) {
-      setType('invalid');
-      setError('A hash do bloco não confere');
-      return;
-    }
-
-    // We won't be checking the transactions on this project for now!
-
-    setType('valid');
-  }, [block, previousBlock]);
+const Block = ({ block }) => {
+  const type = block.type;
+  const error = block.message;
 
   return (
     <StyledBlock className={type}>
