@@ -36,6 +36,7 @@
  * @property {Transaction[]} transactions
  * @property {string} type Can be "valid" or "invalid"
  * @property {?string} message If the block is valid, then it's null, otherwise, it's a message indicating why the block is invalid
+ * @property {Object} balance
  */
 
 /**

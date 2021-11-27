@@ -1,18 +1,35 @@
-import { checkDifficultyForHash, getBodyHash, getHeaderHash } from "./src/hash.js";
+import { getBodyHash, getHeaderHash } from './src/utils/hash.js';
+
+/**
+ * checkDifficultyOnHash will check if the hash contains the ammount of zeros at the beggining indicated by the value of the difficulty
+ * @param {Block} block 
+ * @returns {?string} Null if the check pass or a string with a message if the check fail
+ */
+ export const checkDifficultyOnHash = (hash, difficulty) => {
+  const substring = hash.substring(0, difficulty);
+  return (substring.match(/0/g) || []).length === difficulty;
+};
 
 const block = {
-  index: 3,
-  previousHash: '0000430c6dde02ed9d1e447decf80e2937a308d8cde4da2f0b4e9350dad4cbbd',
-  timestamp: 1637434109,
-  difficulty: 5,
+  index: 5,
+  previousHash: '0000080d88ccb190f4e1f76de64e5630247c34c5484117cbd7fc1ebe8d047732',
+  timestamp: 1638028452,
+  difficulty: 4,
   version: '1.0.0',
   transactions: [
     {
-      id: '37d0de487e4754b9bbb6d1d7bf2316a8d5accafbf0186ecfbccd715714eed7b6',
+      id: 'f4bf9f7fcbedaba0392f108c59d8f4a38b3838efb64877380171b54475c2ade8',
       from: null,
       to: 'Vitor',
       value: 50,
       fee: 0,
+    },
+    {
+      id: 'b323ba8eb5a4df2f162b251ea20b37f6887c7f88714de8ab70ebb4dc99beade5',
+      from: 'Léo',
+      to: 'Vitor',
+      value: 19,
+      fee: 1,
     },
   ],
 };
@@ -21,7 +38,7 @@ var nonce = -1;
 var hash = '';
 block.bodyHash = getBodyHash(block.transactions);
 
-while (!checkDifficultyForHash(block.difficulty, hash)) {
+while (!checkDifficultyOnHash(hash, block.difficulty)) {
   nonce += 1;
   hash = getHeaderHash({ 
     index: block.index, 
@@ -34,4 +51,7 @@ while (!checkDifficultyForHash(block.difficulty, hash)) {
   });
   console.log(hash, nonce);
 }
+console.log('Block mined!');
+console.log('Hash:', hash);
+console.log('Nonce:', nonce);
 console.log('Body hash:', block.bodyHash);

@@ -22,30 +22,32 @@ const Block = ({ block }) => {
       <BlockHeader>
         <div className="title">Cabeçalho</div>
         <BlockTable>
-          <tr id="hash-previous">
-            <td>Hash do bloco anterior:</td>
-            <td className="monospaced">{block.previousHash}</td>
-          </tr>
-          <tr id="hash-body">
-            <td>Hash do corpo do bloco:</td>
-            <td className="monospaced">{block.bodyHash}</td>
-          </tr>
-          <tr id="timestamp">
-            <td>Timestamp:</td>
-            <td className="monospaced">{block.timestamp} ({dayjs.unix(block.timestamp).format('DD/MM/YYYY HH:mm:ss')})</td>
-          </tr>
-          <tr id="difficulty">
-            <td>Dificuldade:</td>
-            <td className="monospaced">{block.difficulty}</td>
-          </tr>
-          <tr id="nonce">
-            <td>Nonce:</td>
-            <td className="monospaced">{block.nonce}</td>
-          </tr>
-          <tr id="version">
-            <td>Versão:</td>
-            <td className="monospaced">{block.version}</td>
-          </tr>
+          <tbody>
+            <tr id="hash-previous">
+              <td>Hash do bloco anterior:</td>
+              <td className="monospaced">{block.previousHash}</td>
+            </tr>
+            <tr id="hash-body">
+              <td>Hash do corpo do bloco:</td>
+              <td className="monospaced">{block.bodyHash}</td>
+            </tr>
+            <tr id="timestamp">
+              <td>Timestamp:</td>
+              <td className="monospaced">{block.timestamp} ({dayjs.unix(block.timestamp).format('DD/MM/YYYY HH:mm:ss')})</td>
+            </tr>
+            <tr id="difficulty">
+              <td>Dificuldade:</td>
+              <td className="monospaced">{block.difficulty}</td>
+            </tr>
+            <tr id="nonce">
+              <td>Nonce:</td>
+              <td className="monospaced">{block.nonce}</td>
+            </tr>
+            <tr id="version">
+              <td>Versão:</td>
+              <td className="monospaced">{block.version}</td>
+            </tr>
+          </tbody>
         </BlockTable>
       </BlockHeader>
 
@@ -54,27 +56,33 @@ const Block = ({ block }) => {
         <BlockTable style={{ tableLayout: 'fixed' }}>
           {block.transactions.length ? (
             <>
-              <tr id="body-header">
-                <th>Origem:</th>
-                <th>Destino:</th>
-                <th>Valor:</th>
-                <th>Taxa:</th>
-              </tr>
-              {block.transactions.map((transaction) => (
-              <tr className="transaction-row" key={transaction.id}>
-                <td>{transaction.from || <i>Moedas Recém-Geradas</i>}</td>
-                <td>{transaction.to}</td>
-                <td>{transaction.value} BTC</td>
-                <td>{transaction.fee} BTC</td>
-              </tr>
-            ))}
+              <thead>
+                <tr id="body-header">
+                  <th>Origem:</th>
+                  <th>Destino:</th>
+                  <th>Valor:</th>
+                  <th>Taxa:</th>
+                </tr>
+              </thead>
+              <tbody>
+                {block.transactions.map((transaction) => (
+                  <tr className="transaction-row" key={transaction.id}>
+                    <td>{transaction.from || <i>Moedas Recém-Geradas</i>}</td>
+                    <td>{transaction.to}</td>
+                    <td>{transaction.value} BTC</td>
+                    <td>{transaction.fee} BTC</td>
+                  </tr>
+                ))}
+              </tbody>
             </>
           ) : (
-            <tr>
-              <td colSpan="4" style={{ textAlign: 'center' }}>
-                Não há transações nesse bloco
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td colSpan="4" style={{ textAlign: 'center' }}>
+                  Não há transações nesse bloco
+                </td>
+              </tr>
+            </tbody>
           )}
           
         </BlockTable>

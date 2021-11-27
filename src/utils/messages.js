@@ -15,6 +15,7 @@ const messages = {
   INVALID_TRANSACTION_FEE: 'A taxa da transação deve ser maior ou igual a zero',
   INVALID_TRANSACTION_VALUE: 'O valor da transação deve ser maior que zero',
   INVALID_PREVIOUS_BLOCK: 'O bloco anterior não é válido',
+  INVALID_TRANSACTION_VALUE_BALANCE: 'O usuário origem não possui saldo suficiente para esta transação',
 };
 
 export default messages;
