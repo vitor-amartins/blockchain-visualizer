@@ -90,6 +90,10 @@ export const BlockTable = styled.table`
     padding: 5px 10px 5px 20px;
   }
 
+  tr#body-header th {
+    text-align: left;
+  }
+
   td:first-child, 
   th:first-child {
     border-left: none;

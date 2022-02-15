@@ -2,7 +2,7 @@ const messages = {
   INVALID_INDEX_ZERO: 'Índice 0 porém há um bloco anterior na cadeia',
   INVALID_INDEX: 'Índice do bloco não é o valor posterior do índice do bloco anterior',
   INVALID_PREVIOUS_HASH: 'Hash do bloco anterior não confere',
-  INVALID_TIMESTAMP_FROM_PREVIOUS: 'Timestamp do bloco atual é menor que a do bloco anterior',
+  INVALID_TIMESTAMP_FROM_PREVIOUS: 'Timestamp do bloco atual é menor ou igual que o do bloco anterior',
   INVALID_TIMESTAMP_IN_FUTURE: 'Timestamp do bloco atual é maior que o timestamp atual',
   INVALID_HASH_FOR_DIFFICULTY: 'A hash do bloco não possui a dificuldade exigida',
   INVALID_BODY_HASH: 'A hash do corpo do bloco não confere',
