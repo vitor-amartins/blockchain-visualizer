@@ -55,7 +55,7 @@ const checkHashOfPreviousBlock = (block, previousBlock) => {
  */
 const checkDifficultyOnHash = (block) => {
   const substring = block.hash.substring(0, block.difficulty);
-  if (!(substring.match(/0/g) || []).length === block.difficulty) {
+  if ((substring.match(/0/g) || []).length !== block.difficulty) {
     return messages.INVALID_HASH_FOR_DIFFICULTY;
   }
 };
